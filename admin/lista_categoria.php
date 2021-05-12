@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -14,14 +15,21 @@
             <td width="15%" heigth="20"><strong><font size="2" color="#fff">Ativo</font></strong></td>
             <td colspan="2" heigth="20"><strong><font size="2" color="#fff">Opcões</font></strong></td>
         </tr>
+        <?php
+            include "conexao.php";
+            $resultado = $cn->query("SELECT * FROM categoria");
+            $resultado = $resultado->fetchAll(PDO::FETCH_ASSOC);
+        foreach ($resultado as $key => $value) {
+        ?>
         <tr bgcolor="#fff">
-            <td><font size="2" face="verdana,arial">001</font></td>
-            <td><font size="2" face="verdana,arial">Ciências</font></td>
-            <td><font size="2" face="verdana,arial">Sim</font></td>
+            <td><font size="2" face="verdana,arial"><?php echo $value['id_categoria']; ?></font></td>
+            <td><font size="2" face="verdana,arial"><?php echo $value['categoria']; ?></font></td>
+            <td><font size="2" face="verdana,arial"><?php echo $value['cat_ativo']; ?></font></td>
             <td align="center"><font size="2" face="verdana,arial"><a href="principal.php?link=">Alterar</a></font></td>
             <td align="center"><font size="2" face="verdana,arial"><a href="principal.php?link=">Excluir</a></font></td>
 
         </tr>
+        <?php } ?>
     </table>
 </body>
 </html>
