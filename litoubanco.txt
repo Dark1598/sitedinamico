@@ -1,0 +1,39 @@
+create database tyccondb;
+/*adm*/
+create table adm(
+id int auto_increment not null primary key,
+nome varchar(30) not null,
+email varchar(30) not null unique,
+senha varchar(30) not null
+);
+insert adm values
+(null,
+ 'daniel',
+ 'daniel@senac.com',
+ 123); /*md5('123456')*/
+
+select * from adm;
+
+/*cliente*/
+create table cliente(
+id int auto_increment not null primary key,
+nome varchar(30) not null,
+email varchar(30) not null unique,
+senha varchar(30) not null,
+cpf char(11) not null unique,
+cep char(8) not null,
+rg char(10) not null,
+create_at timestamp
+);
+insert cliente values
+(null,
+ 'daniel',
+ 'daniel@senac.com',
+ 123, /*md5('123456')*/
+ 16570485784,
+ 15945675,
+ 1594567890,
+ null
+ );
+
+select * from cliente;
